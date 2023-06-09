@@ -1,0 +1,73 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Header */
+header {
+    background: #4CAF50;
+    color: #fff;
+    padding: 1rem;
+}
+
+header a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Main content */
+main {
+    padding: 2rem;
+}
+
+/* Sidebar */
+.sidebar {
+    background: #f4f4f4;
+    padding: 1rem;
+    width: 200px;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+
+.sidebar a {
+    display: block;
+    color: #333;
+    text-decoration: none;
+    padding: 0.5rem 0;
+}
+
+.sidebar a:hover {
+    background: #ddd;
+}
+
+/* Console */
+.console-input {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+}
+
+.console-output {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    background: #f8f8f8;
+    margin-top: 1rem;
+    height: 200px;
+    overflow-y: scroll;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+}
