@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compliance Advisory Tools Hub</title>
+    <link rel="stylesheet" href="/static/css/main.css">
+</head>
+<body>
+    <header>
+        <img src="{{ url_for('static', filename='images/logo1.png') }}" alt="Compliance Advisory Logo">
+            <nav>
+                <ul>
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('nistcontrols') }}">Controls</a></li>
+                <li><a href="{{ url_for('scripts_menu') }}">Scripts</a></li>
+                <li><a href="{{ url_for('about') }}">About</a></li>
+                <!-- Add more navigation links as needed -->
+                </ul>
+            </nav>
+    </header>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+    <footer>
+        <!-- Add your footer content here -->
+    </footer>
+    <script src="/static/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pyodide Example</title>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/pyodide/v0.18.1/full/pyodide.js"></script>
+</head>
+<body>
+    <h1>Run Python Code in the Browser with Pyodide</h1>
+    <textarea id="python-code" rows="10" cols="50">
+print("Hello, Pyodide!")
+    </textarea>
+    <br>
+    <button id="run-code" disabled>Run Python Code</button>
+    <pre id="python-console"></pre>
+
+    <script>
+        async function loadPyodideAndRunCode() {
+            const pythonCode = document.getElementById("python-code").value;
+            const outputElement = document.getElementById("python-console");
+
+            try {
+                const result = await pyodide.runPythonAsync(pythonCode);
+                outputElement.textContent = result;
+            } catch (error) {
+                outputElement.textContent = error;
+            }
+        }
+
+        async function initializePyodide() {
+            await loadPyodide({ indexURL: "https://cdn.jsdelivr.net/pyodide/v0.18.1/full/" });
+            document.getElementById("run-code").disabled = false;
+        }
+
+        document.getElementById("run-code").addEventListener("click", () => {
+            loadPyodideAndRunCode();
+        });
+
+        initializePyodide();
+    </script>
+</body>
+{% endblock %}
